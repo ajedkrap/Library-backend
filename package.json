@@ -1,0 +1,42 @@
+{
+  "name": "library-backend",
+  "version": "1.0.0",
+  "description": "Develop BackEnd for library program using NodeJs with ExpressJS Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajedkrap/Library-backend.git"
+  },
+  "keywords": [
+    "NodeJs",
+    "ExpressJs",
+    "MySQL"
+  ],
+  "author": "Dezza Rizqi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajedkrap/Library-backend/issues"
+  },
+  "homepage": "https://github.com/ajedkrap/Library-backend#readme",
+  "devDependencies": {
+    "standard": "^14.3.3"
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.25.3",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7",
+    "querystring": "^0.2.0",
+    "randomstring": "^1.1.5",
+    "validator": "^13.0.0"
+  }
+}
