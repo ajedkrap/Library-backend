@@ -1,7 +1,3 @@
-// const jwt = require('jsonwebtoken')
-const moment = require('moment')
-
-// const bcrypt = require('../utils/bcrypt')
 const pagination = require('../utils/pagination')
 
 const userModel = require('../models/users')
