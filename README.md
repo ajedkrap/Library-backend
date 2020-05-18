@@ -29,10 +29,14 @@ https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.
  3. Setup your environment variable in `.env` files (create your own)
  
  ```env
- DB_HOST      = 'localhost'
- DB_USER      = 'root'
- DB_PASSWORD  = 'xxx'
- DB_DATABASE  = 'dbname'
+ APP_PORT=
+ APP_URL=
+ APP_TOKEN_KEY=
+ 
+ DB_HOST      = 
+ DB_USER      = 
+ DB_PASSWORD  = 
+ DB_DATABASE  = 
  ```
 
 ## Built With
@@ -40,6 +44,7 @@ https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.
 * [Node JS](https://nodejs.org/) - The server-side JavaScript runtime environment.
 * [npm](https://www.npmjs.com/) - Package Manager for Javascript
 * [Express JS](https://expressjs.com/) - The web application framework 
+* [MySQL](https://www.mysql.com/) - The database management system
 
 # API Documentation 
 
