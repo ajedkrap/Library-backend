@@ -25,19 +25,6 @@ https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.
  
  # example :
  $ npm install --save express mysql body-parser
- 
- 3. Setup your environment variable in `.env` files (create your own)
- 
- ```env
- APP_PORT=
- APP_URL=
- APP_TOKEN_KEY=
- 
- DB_HOST      = 
- DB_USER      = 
- DB_PASSWORD  = 
- DB_DATABASE  = 
- ```
 
 ## Built With
 
