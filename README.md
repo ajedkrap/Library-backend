@@ -16,7 +16,7 @@ https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.
  ## Build Setup
  
  1. Clone Respository
-     `$ https://github.com/banisholih23/bans-library-apps.git`
+     `$ https://github.com/ajedkrap/Library-backend.git`
      
  2. Install Dependencies
  ```bash
