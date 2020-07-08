@@ -1,12 +1,36 @@
+const resData = require('../helper/response')
+
 module.exports = {
   getRoles: (_roles) => {
-    const _result = parseInt(_roles)
-    if (_result === 1) {
-      const _newRoles = ['Admin', 1]
-      return _newRoles
+    const roles = (_roles === 'true')
+    if (roles) {
+      const newRoles = ['admin', 1]
+      return newRoles
     } else {
-      const _newRoles = ['Users', 2]
-      return _newRoles
+      const newRoles = ['user', 2]
+      return newRoles
+    }
+  },
+  permitAdmin: (request, response, next) => {
+    const isAllowed = role => role.includes('admin')
+    const role = request.payload.roles
+    if (role && isAllowed(role)) {
+      next()
+    } else {
+      return response.status(401).send(resData(
+        false, 'Not Allowed'
+      ))
+    }
+  },
+  permitUser: (request, response, next) => {
+    const isAllowed = role => role.includes('user')
+    const role = request.payload.roles
+    if (role && isAllowed(role)) {
+      next()
+    } else {
+      return response.status(401).send(resData(
+        false, 'Not Allowed'
+      ))
     }
   }
 }

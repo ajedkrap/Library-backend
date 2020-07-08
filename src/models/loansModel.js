@@ -1,16 +1,24 @@
 const db = require('../utils/db')
 
 module.exports = {
-  getLoanList: (data = []) => {
-    const sql = `SELECT loans.id as id, loans.user_id as user_id,
-                        users.email as email, loans.user_name as user_name,
-                        loan_status.status as status,
-                        loans.date_loaned as date_loaned, 
-                        loans.date_return as date_return
+  getLoanList: (data) => {
+    let sql = `SELECT loans.id as id,
+                        loans.user_id as user_id,
+                        users.email as email, 
+                        users.username as username,
+                        loans.loan_date as loan_date, 
+                        loans.due_date as due_date,
+                        loans.return_date as return_date,
+                        loan_status.status as status
                           FROM loans INNER JOIN loan_status ON loans.status_id=loan_status.id
-                          INNER JOIN users ON loans.user_id = users.id
-                          WHERE loans.id ${data[0]}
-                          ORDER BY loans.id ${data[1]} LIMIT ${data[2]} OFFSET ${data[3]}`
+                          INNER JOIN users ON loans.user_id = users.id `
+
+    if (parseInt(data.sort)) {
+      sql += 'ORDER BY loan_date ASC'
+    } else {
+      sql += 'ORDER BY loan_date DESC'
+    }
+
     return new Promise((resolve, reject) => {
       db.query(sql, (error, results) => {
         if (error) {
@@ -20,22 +28,36 @@ module.exports = {
       })
     })
   },
-  getLoansCount: (data = []) => {
-    const sql = `SELECT COUNT(*) as total FROM loans 
-                  INNER JOIN loan_status ON loans.status_id=loan_status.id
-                   INNER JOIN users ON loans.user_id = users.id
-                    WHERE loans.id ${data[0]}
-                     ORDER BY loans.id ${data[1]} LIMIT ${data[2]} OFFSET ${data[3]}`
+  getLoanListByUser: (data) => {
+    let sql = `SELECT loans.id as id,
+                        loans.user_id as user_id,
+                        users.email as email, 
+                        users.username as username,
+                        loans.loan_date as loan_date, 
+                        loans.due_date as due_date,
+                        loans.return_date as return_date,
+                        loan_status.status as status
+                          FROM loans INNER JOIN loan_status ON loans.status_id=loan_status.id
+                          INNER JOIN users ON loans.user_id = users.id `
+
+    sql += `WHERE user_id=${data.user_id} `
+
+    if (parseInt(data.sort)) {
+      sql += 'ORDER BY loan_date ASC '
+    } else {
+      sql += 'ORDER BY loan_date DESC '
+    }
+
     return new Promise((resolve, reject) => {
       db.query(sql, (error, results) => {
         if (error) {
           reject(Error(error))
         }
-        resolve(results[0].total)
+        resolve(results)
       })
     })
   },
-  getLoanByCondition: (data) => {
+  checkLoan: (data) => {
     const sql = 'SELECT * FROM loans WHERE ?'
     return new Promise((resolve, reject) => {
       db.query(sql, data, (error, results) => {
@@ -46,8 +68,19 @@ module.exports = {
       })
     })
   },
-  getLoanedBook: (data) => {
-    const sql = 'SELECT * FROM loaned_books WHERE ?'
+  getAllLoanedBook: () => {
+    const sql = 'SELECT book_title, COUNT(id) as total FROM loaned_books GROUP BY book_title'
+    return new Promise((resolve, reject) => {
+      db.query(sql, (error, results) => {
+        if (error) {
+          reject(Error(error))
+        }
+        resolve(results)
+      })
+    })
+  },
+  checkLoanedBook: (data) => {
+    const sql = 'SELECT * FROM loaned_books INNER JOIN books ON loaned_books.book_id = books.id WHERE ?'
     return new Promise((resolve, reject) => {
       db.query(sql, data, (error, results) => {
         if (error) {

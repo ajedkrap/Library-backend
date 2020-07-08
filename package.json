@@ -22,10 +22,11 @@
   },
   "homepage": "https://github.com/ajedkrap/Library-backend#readme",
   "devDependencies": {
-    "standard": "^14.3.3"
+    "standard": "^14.3.4"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
+    "@hapi/joi-date": "^2.0.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

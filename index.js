@@ -3,6 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const { APP_PORT } = process.env
+const os = require('os')
 
 const app = express()
 
@@ -32,14 +33,16 @@ app.get('/home', (request, response) => {
   response.send(home)
 })
 
-const books = require('./src/routes/books')
-const auth = require('./src/routes/auth')
-const user = require('./src/routes/users')
-const loans = require('./src/routes/loans')
+const books = require('./src/routes/bookRoute')
+const auth = require('./src/routes/authRoute')
+const genre = require('./src/routes/genreRoute')
+// const user = require('./src/routes/users')
+const loans = require('./src/routes/loansRoute')
 
 app.use('/books', books)
-app.use('/api/user', auth)
-app.use('/user', user)
+app.use('/auth', auth)
+app.use('/genre', genre)
+// app.use('/user', user)
 app.use('/loans', loans)
 
 app.get('*', (request, response) => {
@@ -47,5 +50,6 @@ app.get('*', (request, response) => {
 })
 
 app.listen(APP_PORT, () => {
+  console.log(os.networkInterfaces())
   console.log(`Express app is listening on port ${APP_PORT}`)
 })

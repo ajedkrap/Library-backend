@@ -1,20 +1,25 @@
 const multer = require('multer')
+const path = require('path')
 
 const storage = multer.diskStorage({
-  limits: { fileSize: 0.5 * 1024 * 1024 },
+
   destination: function (request, file, callback) {
     callback(null, './uploads/books')
   },
-  fileFilter: function (request, file, callback) {
-    if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
-      return callback(new Error('Only image files are allowed!'))
-    }
-    callback(null, true)
-  },
   filename: function (request, file, callback) {
-    callback(null, 'BOOKS_' + new Date().getTime() + '_' + file.originalname.slice(0, 5).toUpperCase() + file.originalname.slice(-4))
+    callback(null, 'BOOKS_' + new Date().getTime() + path.extname(file.originalname))
   }
 })
-const upload = multer({ storage })
+const upload = multer({
+  storage,
+  limits: { fileSize: 1024 * 1024 },
+  fileFilter: function (request, file, callback) {
+    if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
+      request.fileValidationError = 'Only image files are allowed!'
+      return callback(new Error('Only image files are allowed!'), false)
+    }
+    callback(null, true)
+  }
+})
 
-module.exports = upload
+module.exports = upload.single('image')
