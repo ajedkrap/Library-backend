@@ -56,19 +56,11 @@ DB_NAME= library
  
 - **POST** Create Books Endpoint Path: ```books/``` (Token needed, Admin Permit)
   ##### **Output**
-  -  ```{ "id": XX, "title" : "Good Omens", "description" : "The book is a comedy about the birth of the son of Satan and the coming of the End Times. There are attempts by the angel Aziraphale and the demon Crowley to sabotage the coming of the end times, having grown accustomed to their comfortable surroundings in England.", "image": "cover/BOOKS_1591752123767.jpg", "genre": ["fantasy", "comedy", "horror" ],"author": [ "neil gaiman", "terry pratchett" ] , "status": 'Available', "release_date": "1990-05-10, 00:00:00"  }```
+  -  ```{ "id": XX, "title" : "Good Omens", "description" : "The book is a comedy about the birth of the son of Satan and the coming of the End Times. There are attempts by the angel Aziraphale and the demon Crowley to sabotage the coming of the end times, having grown accustomed to their comfortable surroundings in England.", "image": "cover/BOOKS_1591752123767.jpg", "genre": ["fantasy", "comedy", "horror" ],"author": [ "neil gaiman", "terry pratchett" ] , "status": 'Available', "release_date": "1990-05-10, 00:00:00" }```
   
 - **PATCH** Update Books Endpoint Path: ```books/:id``` (Token needed, Admin Permit)
   ##### **Output**
-  -  ```{ "id": XX, 
-  "title" : "Good Omens", 
-  "description" : "The book is a comedy about the birth of the son of Satan and the coming of the End Times. There are attempts by the angel Aziraphale and the demon Crowley to sabotage the coming of the end times, having grown accustomed to their comfortable surroundings in England.", 
-  "image": "cover/BOOKS_1591752123767.jpg", 
-  "genre": ["fantasy", "comedy", "horror" ], 
-  "author": [ "neil gaiman", "terry pratchett" ] ,
-  "status": 'Available', 
-  "release_date": "1990-05-10, 00:00:00"  }
-  ```
+  -  ```{ "id": XX, "title" : "Good Omens", "description" : "The book is a comedy about the birth of the son of Satan and the coming of the End Times. There are attempts by the angel Aziraphale and the demon Crowley to sabotage the coming of the end times, having grown accustomed to their comfortable surroundings in England.", "image": "cover/BOOKS_1591752123767.jpg", "genre": ["fantasy", "comedy", "horror" ], "author": [ "neil gaiman", "terry pratchett" ] , "status": 'Available', "release_date": "1990-05-10, 00:00:00" } ```
 
 - **DELETE** Books Endpoint Path: ```books/:id``` (Token needed, Admin Permit)
 
