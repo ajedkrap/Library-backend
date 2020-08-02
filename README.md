@@ -7,10 +7,11 @@ Library-backend is a back-end based 'library' API.
 
 ## Built With
 
-![Node.js](https://img.shields.io/badge/Node.js-v.10.16-green.svg?style=rounded-square)
+
 * [Node JS](https://nodejs.org/) - The server-side JavaScript runtime environment.
-![Express.js](https://img.shields.io/badge/Express.js-4.x-orange.svg?style=rounded-square)
+![Node.js](https://img.shields.io/badge/Node.js-v.10.16-green.svg?style=rounded-square)
 * [Express JS](https://expressjs.com/) - The web application framework 
+![Express.js](https://img.shields.io/badge/Express.js-4.x-orange.svg?style=rounded-square)
 
 ## Build Setup
  
@@ -38,7 +39,7 @@ DB_NAME= library
 
 
 ## End Points 
-# Auth Routes
+### Auth Routes
 
 - **POST** Login Endpoint Path:```/auth/login```
   ##### **Output**
@@ -48,7 +49,7 @@ DB_NAME= library
   ##### **Output**
   - *```{ "username": "respects", "email": "respects@admin.com", "roles": "admin"  } ```
 
-# Books Routes
+### Books Routes
 
 - **GET** Get All Books Endpoint Path: ```books?search&sort&page&limit``` (Token needed)
  
@@ -64,7 +65,7 @@ DB_NAME= library
 
 - **DELETE** Books Endpoint Path: ```books/:id``` (Token needed, Admin Permit)
 
-# Genre Routes
+### Genre Routes
 
 - **GET** Get All Genres Endpoint Path: ```genre/``` (Token needed)
 
@@ -78,7 +79,7 @@ DB_NAME= library
  
 - **DELETE** Delete Genre Endpoint Path: ```genre/:id``` (Token needed, Admin Permit)
 
-# Loans Routes
+### Loans Routes
 
 - **GET** Get Loaned Book Endpoint Path: ```loans/book``` (Token needed, Admin Permit)
 
