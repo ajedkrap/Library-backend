@@ -41,12 +41,12 @@ DB_NAME= library
 # Auth Routes
 
 - **POST** Login Endpoint Path:```/auth/login```
-##### **Output**
-  - * ```{ "id": XX, "username": "respects",  "email": "respects@admin.com",  "roles": "admin", "token": *token* }```
+  ##### **Output**
+  - ```{ "id": XX, "username": "respects",  "email": "respects@admin.com",  "roles": "admin", "token": *token* }```
   
 - **POST** SignUp Endpoint Path:```/auth/signup```
-##### **Output**
-  - * ```{ "username": "respects", "email": "respects@admin.com", "roles": "admin"  } ```
+  ##### **Output**
+  - *```{ "username": "respects", "email": "respects@admin.com", "roles": "admin"  } ```
 
 # Books Routes
 
@@ -55,12 +55,20 @@ DB_NAME= library
 - **GET** Get Books by Genre Endpoint Path: ```books/:genre``` (Token needed)
  
 - **POST** Create Books Endpoint Path: ```books/``` (Token needed, Admin Permit)
- ##### **Output**
-  - * ```{ "id": XX, "title" : "Good Omens", "description" : "The book is a comedy about the birth of the son of Satan and the coming of the End Times. There are attempts by the angel Aziraphale and the demon Crowley to sabotage the coming of the end times, having grown accustomed to their comfortable surroundings in England.", "image": "cover/BOOKS_1591752123767.jpg", "genre": ["fantasy", "comedy", "horror" ],"author": [ "neil gaiman", "terry pratchett" ] , "status": 'Available', "release_date": "1990-05-10, 00:00:00"  }```
+  ##### **Output**
+  -  ```{ "id": XX, "title" : "Good Omens", "description" : "The book is a comedy about the birth of the son of Satan and the coming of the End Times. There are attempts by the angel Aziraphale and the demon Crowley to sabotage the coming of the end times, having grown accustomed to their comfortable surroundings in England.", "image": "cover/BOOKS_1591752123767.jpg", "genre": ["fantasy", "comedy", "horror" ],"author": [ "neil gaiman", "terry pratchett" ] , "status": 'Available', "release_date": "1990-05-10, 00:00:00"  }```
   
 - **PATCH** Update Books Endpoint Path: ```books/:id``` (Token needed, Admin Permit)
- ##### **Output**
-  - * ```{ "id": XX, "title" : "Good Omens", "description" : "The book is a comedy about the birth of the son of Satan and the coming of the End Times. There are attempts by the angel Aziraphale and the demon Crowley to sabotage the coming of the end times, having grown accustomed to their comfortable surroundings in England.", "image": "cover/BOOKS_1591752123767.jpg", "genre": ["fantasy", "comedy", "horror" ],"author": [ "neil gaiman", "terry pratchett" ] , "status": 'Available', "release_date": "1990-05-10, 00:00:00"  }```
+  ##### **Output**
+  -  ```{ "id": XX, 
+  "title" : "Good Omens", 
+  "description" : "The book is a comedy about the birth of the son of Satan and the coming of the End Times. There are attempts by the angel Aziraphale and the demon Crowley to sabotage the coming of the end times, having grown accustomed to their comfortable surroundings in England.", 
+  "image": "cover/BOOKS_1591752123767.jpg", 
+  "genre": ["fantasy", "comedy", "horror" ], 
+  "author": [ "neil gaiman", "terry pratchett" ] ,
+  "status": 'Available', 
+  "release_date": "1990-05-10, 00:00:00"  }
+  ```
 
 - **DELETE** Books Endpoint Path: ```books/:id``` (Token needed, Admin Permit)
 
@@ -69,12 +77,12 @@ DB_NAME= library
 - **GET** Get All Genres Endpoint Path: ```genre/``` (Token needed)
 
 - **POST** Create Genre Endpoint Path: ```genre/``` (Token needed, Admin Permit)
- ##### **Output**
+  ##### **Output**
   - * ```{"id":XX, "genre": "action", "created_at": "2020-06-10T01:22:03.000Z", "updated_at": "2020-06-10T01:22:03.000Z", "deleted_at": null}```
 
 - **PATCH** Update Genre Endpoint Path: ```genre/:id``` (Token needed, Admin Permit)
- ##### **Output**
- - * ```{"id":XX, "genre": "action", "created_at": "2020-06-10T01:22:03.000Z", "updated_at": "2020-06-12T01:22:03.000Z", "deleted_at": null}```
+  ##### **Output**
+  - * ```{"id":XX, "genre": "action", "created_at": "2020-06-10T01:22:03.000Z", "updated_at": "2020-06-12T01:22:03.000Z", "deleted_at": null}```
  
 - **DELETE** Delete Genre Endpoint Path: ```genre/:id``` (Token needed, Admin Permit)
 
@@ -90,9 +98,9 @@ DB_NAME= library
 
 - **POST** Loans Endpoint Path: ```loans/``` (Token needed, User Permit)
   ##### **Output**
-  - *``` { "id": 35, "user_id": 44, "username": "userlupa", "book": [  "One Piece",  "Naruto"  ], "loan_date": "2020-08-03", "due_date": "2020-08-05", "status": "On Loan" }```
+  - ``` { "id": 35, "user_id": 44, "username": "userlupa", "book": [  "One Piece",  "Naruto"  ], "loan_date": "2020-08-03", "due_date": "2020-08-05", "status": "On Loan" }```
  
 - **PATCH** Loans Endpoint Path: ```loans/:id``` (Token needed, User Permit)
   ##### **Output**
-  - *```{ "id": 35, "user_id": 44, "username": "userlupa", "loan_date": "2020-08-02T18:39:51.000Z","due_date": "2020-08-04T17:00:00.000Z", "return_date": "2020-08-02T18:44:50.000Z", "status_id": 3 }```
+  - ```{ "id": 35, "user_id": 44, "username": "userlupa", "loan_date": "2020-08-02T18:39:51.000Z","due_date": "2020-08-04T17:00:00.000Z", "return_date": "2020-08-02T18:44:50.000Z", "status_id": 3 }```
 
