@@ -2,7 +2,7 @@
 
 Library-backend is a back-end based 'library' API.
 
-<div align="center">![](https://img.shields.io/github/watchers/ajedkrap/library-backend?style=social) ![](https://img.shields.io/github/last-commit/:user/:repo) </div>
+<div align="center"> <img src="https://img.shields.io/github/watchers/ajedkrap/library-backend?style=social" alt="watchers"/> <img src="https://img.shields.io/github/last-commit/:user/:repo" alt="last-commit" /> </div>
 
 
 ## Built With
